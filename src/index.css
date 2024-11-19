@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.parent-card {
+  @apply relative w-20 flex flex-col gap-[3px] items-center rounded-lg overflow-hidden shadow-md shadow-black;
+}
+
+.top-card {
+  @apply shadow-md shadow-black;
+}
+
+.top-card,
+.top-flip {
+  @apply bg-emerald-800 items-start;
+}
+
+.bottom-card,
+.bottom-flip {
+  @apply bg-emerald-600 items-end;
+}
+
+.top-card,
+.bottom-card,
+.top-flip,
+.bottom-flip {
+  @apply w-full h-[.53em] overflow-hidden flex justify-center text-white text-8xl pb-2 font-normal;
+}
+
+.top-flip {
+  @apply origin-bottom absolute;
+  animation: topFlip 300ms ease-in forwards;
+}
+@keyframes topFlip {
+  0% {
+    transform: rotateX(0deg);
+  }
+  100% {
+    transform: rotateX(90deg);
+  }
+}
+.bottom-flip {
+  @apply origin-top absolute bottom-0;
+  animation: bottomFlip 300ms ease-out 300ms backwards;
+}
+@keyframes bottomFlip {
+  0% {
+    transform: rotateX(90deg);
+  }
+  100% {
+    transform: rotateX(0deg);
+  }
+}
+
+.dot-separator {
+  @apply w-[10px] aspect-square bg-emerald-900 rounded-full shadow-md shadow-black;
+}
